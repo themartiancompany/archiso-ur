@@ -25,7 +25,6 @@ license=(
 depends=(
   'arch-install-scripts'
   'bash'
-  'cryptsetup-nested-cryptkey'
   'dosfstools'
   'e2fsprogs'
   'erofs-utils'
@@ -41,11 +40,13 @@ _os="$( \
 [[ "${_os}" == "GNU/Linux" ]] && \
 [[ "${_os}" != "Android" ]] && \
   depends+=(
+    'cryptsetup-nested-cryptkey'
     'squashfs-tools'
   )
 [[ "${_os}" != "GNU/Linux" ]] && \
 [[ "${_os}" == "Android" ]] && \
   depends+=(
+    'cryptsetup'
     'squashfs-tools-ng'
     tsu
   )
