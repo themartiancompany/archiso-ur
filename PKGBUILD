@@ -34,14 +34,19 @@ depends=(
   'libcrash-bash'
   'libisoburn'
   'mtools'
-  'squashfs-tools'
 )
 _os="$( \
   uname \
     -o)"
+[[ "${_os}" == "GNU/Linux" ]] && \
+[[ "${_os}" != "Android" ]] && \
+  depends+=(
+    'squashfs-tools'
+  )
 [[ "${_os}" != "GNU/Linux" ]] && \
 [[ "${_os}" == "Android" ]] && \
   depends+=(
+    'squashfs-tools-ng'
     tsu
   )
 optdepends=(
